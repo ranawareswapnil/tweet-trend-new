@@ -7,10 +7,11 @@ pipeline {
     
 
     stages {
-        stage('Clone-code') {
+        stage("build"){
             steps {
-               git branch: 'main', url: 'https://github.com/ranawareswapnil/tweet-trend-new.git'
+                sh 'mvn clen deploy'
             }
+
         }
     }
 }
