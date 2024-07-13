@@ -15,6 +15,8 @@ pipeline {
             }
 
         }
+  }
+
     /*
      stage('SonarQube analysis') {
         environment{
@@ -40,5 +42,5 @@ pipeline {
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
-  }
-  */
+    */
+}
