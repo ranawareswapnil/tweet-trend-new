@@ -7,7 +7,7 @@ pipeline {
     environment {
         PATH="/opt/apache-maven-3.9.8/bin:$PATH"
     }
-  /*
+ 
     stages {
         stage("build"){
             steps {
@@ -16,8 +16,8 @@ pipeline {
 
         }
   }
-
-  
+}
+   /*
      stage('SonarQube analysis') {
         environment{
             scannerHome = tool 'valaxy-sonar-scanner'
@@ -43,4 +43,3 @@ pipeline {
     }
     }
     */
-}
