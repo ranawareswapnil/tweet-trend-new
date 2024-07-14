@@ -10,11 +10,6 @@ pipeline {
 
     stages {
 
-        stage("Git Checkout"){
-            steps{
-                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/ranawareswapnil/tweet-trend-new.git'
-            }
-           }
            
         stage("build"){
             steps {
