@@ -14,7 +14,18 @@ pipeline {
            
         stage("build Now NEW"){
             steps {
-                sh 'mvn clean deploy'
+                echo "------------Build test Started----------------------"
+                sh 'mvn clean deploy -Dmaven.test.skip=tr'
+                echo "------------Build test Complted----------------------"
+            }
+
+        }
+
+        stage("test"){
+            steps {
+                echo "------------Unit test Started----------------------"
+                sh 'mvn surfire-report:report'
+                echo "------------Unit test Complted----------------------"
             }
 
         }
