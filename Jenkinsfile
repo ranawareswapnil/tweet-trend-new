@@ -12,7 +12,7 @@ pipeline {
 
 
            
-        stage("build Now"){
+        stage("build Now NEW"){
             steps {
                 sh 'mvn clean deploy'
             }
