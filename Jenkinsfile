@@ -1,4 +1,6 @@
 def registry = 'https://swap05.jfrog.io/'
+def imageName = 'swap05.jfrog.io/valaxy-docker-local/ttrend'
+def version   = '2.1.2'
 
 pipeline {
     agent {
@@ -73,7 +75,29 @@ pipeline {
             }
         }   
     }  
+    
+    stage(" Docker Build ") {
+      steps {
+        script {
+           echo '<--------------- Docker Build Started --------------->'
+           app = docker.build(imageName+":"+version)
+           echo '<--------------- Docker Build Ends --------------->'
+        }
+      }
+    }
 
+            stage (" Docker Publish "){
+        steps {
+            script {
+               echo '<--------------- Docker Publish Started --------------->'  
+                docker.withRegistry(registry, 'jfrog-maven'){
+                    app.push()
+                }    
+               echo '<--------------- Docker Publish Ended --------------->'  
+            }
+        }
+    }
+    
 
     }
 }
