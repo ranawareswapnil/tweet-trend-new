@@ -105,8 +105,8 @@ pipeline {
                  
             }
         }
-        
-    stage(" Deploy ") {
+
+    stage(" Deploy with helm") {
        steps {
          script {
             echo '<--------------- Helm Deploy Started --------------->'
